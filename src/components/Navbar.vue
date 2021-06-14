@@ -5,7 +5,7 @@
       </div>
       <div>
         <input v-model="searchBox" type="text">
-        <button>Search</button>
+        <button @click="filterBtn(searchBox)">Search</button>
       </div>
   </section>
 </template>
@@ -16,6 +16,11 @@ export default {
     data() {
         return {
             searchBox : ''
+        }
+    },
+    methods: {
+        filterBtn(event) {
+            return this.$emit( "myFilterBtn", event );
         }
     }
 }
