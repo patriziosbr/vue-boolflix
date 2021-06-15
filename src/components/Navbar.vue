@@ -5,7 +5,7 @@
       </div>
       <div>
         <input v-model="searchBox" type="text">
-        <button @click="filterBtn(searchBox)">Search</button>
+        <button @click="filterBtn(searchBox); showSeries(searchBox);">Search</button>
       </div>
   </section>
 </template>

@@ -1,23 +1,26 @@
 <template>
   <section>
-      <ul>
-          <!-- removed @myList="$emit('thisList', movie)" -->
-        <li v-for="movie in moviesArr" :key="movie.id" >
-        <p>{{ movie.title }}</p>
-        <p>{{ movie.original_title }}</p>
-        <p>{{ movie.original_language }}</p>
-        <p>{{ movie.vote_average }}</p>
+    <h1>Movies</h1>
+    <ul>
+      <MovieCard v-for="movie in moviesArr" :key="movie.id" :itemMovie="movie"/>
+    </ul>
 
-        </li> 
+    <ul>
+      <SeriesCard />
+    </ul>
 
-      </ul>
   </section>
 </template>
 
 <script>
+import MovieCard from './MovieCard.vue'
+
 export default {
-    name: "MainMovies",
-    props: [ "moviesArr" ]
+  name: "MainMovies",
+  props: [ "moviesArr", "seriesArr" ],
+  components: { 
+    MovieCard 
+  }
 }
 </script>
 
