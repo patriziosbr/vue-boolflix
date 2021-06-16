@@ -8,11 +8,7 @@
             <img class="flag" src="../assets/images/en.png" alt="eng flag" v-if="itemMovie.original_language == 'en'">
             <img class="flag" src="../assets/images/it.png" alt="ita flag" v-else-if="itemMovie.original_language == 'it'">
             <p v-else>{{ itemMovie.original_language }}</p>
-            <p v-if="displayStar(itemMovie.vote_average)">
-                {{ itemMovie.vote_average }}
-                
-                
-            </p>
+            <p> {{ displayStar(itemMovie.vote_average) }} </p>
         </li> 
 
   </section>
@@ -41,46 +37,16 @@ export default {
             let fixedVote = Math.ceil(vote)
             console.log(fixedVote);
 
-                switch(fixedVote) {
-                   case 1: 
-                        this.stars.push(this.fullStar);
-                        this.stars.push(this.emptyStar);
-                        this.stars.push(this.emptyStar);
-                        this.stars.push(this.emptyStar);
-                        this.stars.push(this.emptyStar);
-                        break;
-                    case 2:
-                        this.stars.push(this.fullStar);
-                        this.stars.push(this.fullStar);
-                        this.stars.push(this.emptyStar);
-                        this.stars.push(this.emptyStar);
-                        this.stars.push(this.emptyStar);
-                        break;
-                    case 3:
-                        this.stars.push(this.fullStar);
-                        this.stars.push(this.fullStar);
-                        this.stars.push(this.fullStar);
-                        this.stars.push(this.emptyStar);
-                        this.stars.push(this.emptyStar);
-                        break;
-                    case 4:
-                        this.stars.push(this.fullStar);
-                        this.stars.push(this.fullStar);
-                        this.stars.push(this.fullStar);
-                        this.stars.push(this.fullStar);
-                        this.stars.push(this.emptyStar);
-                        break;
-                    case 5:
-                        this.stars.push(this.fullStar);
-                        this.stars.push(this.fullStar);
-                        this.stars.push(this.fullStar);
-                        this.stars.push(this.fullStar);
-                        this.stars.push(this.fullStar);
-                        break;
-               
+            while(this.stars.length < 5) {
+                
+                for(let i = 0; i < fixedVote; i++ ) {
+                    this.stars.push(this.fullStar)
+                }
+                this.stars.push(this.emptyStar)
                 
             }
         }
+
     }
 }
 </script>

@@ -4,7 +4,7 @@
           This is a logo
       </div>
       <div>
-        <input v-model="searchBox" type="text">
+        <input v-model="searchBox" type="text" @keyup.enter="filterBtn(searchBox)">
         <button @click="filterBtn(searchBox);">Search</button>
       </div>
   </section>
