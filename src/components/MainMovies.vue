@@ -8,7 +8,7 @@
     <h2 v-if=" moviesArr.length === 0 && seriesArr.length > 1 " >Movies</h2>
     <h2 v-else-if="moviesArr.length > 0">MovieS</h2>
     <h1> {{ moviesWarn() }}</h1>
-    
+
     <ul>
       <MovieCard v-for="movie in moviesArr" :key="movie.id"   :itemMovie="movie"/>
     </ul>
@@ -72,9 +72,15 @@ export default {
 @import '~@fortawesome/fontawesome-free/css/all.min.css';
 
    .poster {
-        width: 25%;
+      width: 25%;
     }
     .flag {
-        height: 30px;
+      height: 30px;
+    }
+    .hide {
+      display: none;
+    }
+    .show {
+      display: block;
     }
 </style>

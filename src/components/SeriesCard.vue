@@ -2,15 +2,17 @@
   <section>
     
     <li> 
-        <img class="poster" :src="getPoster()"  @error="replaceByDefault" alt="">      
+        <img class="poster" :src="getPoster()"  @error="replaceByDefault" alt="">   
+
         <p> {{ itemSerie.name }} </p> 
-        <p> {{ itemSerie.original_name }} </p>
+        <p :class="(itemMovie.title === itemMovie.original_title) ? 'hide' : 'show' " > {{ itemSerie.original_name }} </p>
         <img class="flag" src="../assets/images/en.png" alt="eng flag" v-if="itemSerie.original_language == 'en'">
         <img class="flag" src="../assets/images/it.png" alt="ita flag" v-else-if="itemSerie.original_language == 'it'">
         <p v-else> {{ itemSerie.original_language }} </p>
         <span>
             <i v-for="i in 5" :key="i" :class="i <= starCount(itemSerie) ? 'fas fa-star' : 'far fa-star'"></i>
         </span>
+        
     </li>
   
   </section>
