@@ -8,7 +8,7 @@
             <img class="flag" src="../assets/images/en.png" alt="eng flag" v-if="itemMovie.original_language == 'en'">
             <img class="flag" src="../assets/images/it.png" alt="ita flag" v-else-if="itemMovie.original_language == 'it'">
             <p v-else>{{ itemMovie.original_language }}</p>
-            <p> {{ displayStar(itemMovie.vote_average) }} </p>
+            <span v-for="(star, index) in stars" :key="index" v-html="star"> {{ displayStar(itemMovie.vote_average) }} </span>
         </li> 
 
   </section>
@@ -39,11 +39,20 @@ export default {
 
             while(this.stars.length < 5) {
                 
-                for(let i = 0; i < fixedVote; i++ ) {
-                    this.stars.push(this.fullStar)
-                }
-                this.stars.push(this.emptyStar)
+                // for(let i = 0; i <= fixedVote; i++ ) {
+                //  this.stars.length.push(this.fullStar)
                 
+                // }
+                // this.stars.length.push(this.emptyStar)
+                if ( this.stars.length < fixedVote) {
+
+                    for(let i = 0; i < fixedVote; i++ ) {
+
+                        this.stars.push(this.fullStar)
+                    }
+                } else {
+                    this.stars.push(this.emptyStar)
+                }
             }
         }
 
