@@ -25,8 +25,7 @@ export default {
     data() {
         return {
             path: 'https://image.tmdb.org/t/p/w342',
-            img404: 'https://cdn.iconscout.com/icon/premium/png-256-thumb/404-5-1136227.png',
-            stars: []
+            img404: 'https://cdn.iconscout.com/icon/premium/png-256-thumb/404-5-1136227.png'
         }
     },
     methods:{

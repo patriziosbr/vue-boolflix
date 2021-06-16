@@ -1,8 +1,10 @@
 <template>
   <div id="app">
+
       <Navbar  @myFilterBtn="btnMethod($event)" />
 
-      <MainMovies :moviesArr="movies" :seriesArr="series"/>
+      <MainMovies :moviesArr="movies" :seriesArr="series" :queryString="queryBox"/>
+
   </div>
 </template>
 
@@ -21,8 +23,8 @@ export default {
       languageData: 'it-IT',
       movies: [],
       series: [],
-      queryBox: "",
-      searchMovie: "search a movie"
+      queryBox: ""
+  
     }
   },
   components: {
@@ -38,6 +40,7 @@ export default {
         language: this.languageData,
       }}).then ( (resp) => {
         this.movies = resp.data.results;
+
       }).catch(e => {
         console.log("errore in movies", e)
       })
@@ -49,7 +52,7 @@ export default {
           query: this.queryBox,
           language: this.languageData
         }}).then ( (res) => {
-          this.series = res.data.results
+          this.series = res.data.results;
         }).catch( e => {
           console.log("errore in serie", e);
         })
@@ -58,7 +61,10 @@ export default {
       this.queryBox = option;
       this.loadMovies();
       this.loadSeries();
+
+    
     }
+
 
   }
 
