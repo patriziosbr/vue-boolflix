@@ -5,16 +5,16 @@
             <img class="poster" :src="getPoster()" @error="replaceByDefault" alt="">   
         </div>
 
-        <div class="detailsUp">
+        <div class="detailsUp mb-auto">
             
-            <p> {{ itemMovie.title }} </p>
-            <p :class="(itemMovie.title === itemMovie.original_title) ? 'hide' : 'show' " > {{ itemMovie.original_title }} </p>
+            <h1 class="detailsUph1"> {{ itemMovie.title }} </h1>
+            <h2 class="detailsUph2" :class="(itemMovie.title === itemMovie.original_title) ? 'hide' : 'show' " > {{ itemMovie.original_title }} </h2>
             <img class="flag" src="../assets/images/en.png" alt="eng flag" v-if="itemMovie.original_language == 'en'">
             <img class="flag" src="../assets/images/it.png" alt="ita flag" v-else-if="itemMovie.original_language == 'it'">
-            <p v-else>{{ itemMovie.original_language }}</p>
-            <span>
+            <p class="detailsUpp" v-else>{{ itemMovie.original_language }}</p>
+            <div class="mb-auto">
                 <i v-for="i in 5" :key="i" :class="i <= starCount(itemMovie) ? 'fas fa-star' : 'far fa-star'"></i>
-            </span>
+            </div>
 
         </div> 
 
@@ -31,7 +31,7 @@ export default {
     data() {
         return {
             path: 'https://image.tmdb.org/t/p/w342',
-            img404: 'https://cdn.iconscout.com/icon/premium/png-256-thumb/404-5-1136227.png'
+            img404: "../assets/images/notFound.png"
         }
     },
     methods:{
@@ -40,7 +40,7 @@ export default {
         },
         replaceByDefault(e) {
             console.log("404 gestito in movies");
-            e.target.src = this.img404
+            e.target.src = require("../assets/images/notFound.png")
         },
         starCount(item) {
             return Math.ceil(item.vote_average / 2);
@@ -51,5 +51,5 @@ export default {
 
 <style lang="scss" >
 
-    
+
 </style>

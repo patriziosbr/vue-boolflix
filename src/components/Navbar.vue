@@ -5,7 +5,7 @@
 
         <div class="logodebug col-md-2">
             <a href="http://localhost:8080">
-                <img  class="m-auto" src="../assets/images/logo.png" alt="">
+                <img  class="imgLogo" src="../assets/images/logo.png" alt="">
             </a>
         </div>
   
@@ -60,6 +60,13 @@ export default {
         
         .logodebug {
             text-align: center;
+            height: 60px;
+            margin-bottom: 8px;
+
+            img.imgLogo {
+                height: 100%;
+            }
+            
         }
         input,
         button {
@@ -70,7 +77,7 @@ export default {
             color: rgb(124, 124, 124);
         }
     
-    @include media-breakpoint-up(md) { 
+    @include media-breakpoint-up(sm) { 
         
         .logodebug {
             text-align: start;

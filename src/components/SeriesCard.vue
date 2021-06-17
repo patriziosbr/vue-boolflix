@@ -1,19 +1,22 @@
 <template>
   <section>
     
-    <li> 
+    <div class="posterUp"> 
         <img class="poster" :src="getPoster()"  @error="replaceByDefault" alt="">   
+    </div>
 
-        <p> {{ itemSerie.name }} </p> 
-        <p :class="(itemSerie.name === itemSerie.original_name) ? 'hide' : 'show' " > {{ itemSerie.original_name }} </p>
+    <div class="detailsUp mb-auto">
+
+        <h1 class="detailsUph1"> {{ itemSerie.name }} </h1> 
+        <h2 class="detailsUph2" :class="(itemSerie.name === itemSerie.original_name) ? 'hide' : 'show' " > {{ itemSerie.original_name }} </h2>
         <img class="flag" src="../assets/images/en.png" alt="eng flag" v-if="itemSerie.original_language == 'en'">
         <img class="flag" src="../assets/images/it.png" alt="ita flag" v-else-if="itemSerie.original_language == 'it'">
-        <p v-else> {{ itemSerie.original_language }} </p>
-        <span>
+        <p class="detailsUpp" v-else> {{ itemSerie.original_language }} </p>
+        <div class="mb-auto">
             <i v-for="i in 5" :key="i" :class="i <= starCount(itemSerie) ? 'fas fa-star' : 'far fa-star'"></i>
-        </span>
+        </div>
         
-    </li>
+    </div>
   
   </section>
 
@@ -36,7 +39,7 @@ export default {
         },
         replaceByDefault(e) {
             console.log("404 gestito in serie");
-            e.target.src = this.img404
+            e.target.src = require("../assets/images/notFound.png")
         },
         starCount(item) {
             return Math.ceil(item.vote_average / 2);
