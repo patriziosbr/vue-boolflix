@@ -1,9 +1,12 @@
 <template>
   <section>
        
-        <li>
-            <img class="poster" :src="getPoster()" @error="replaceByDefault" alt="">
+        <div class="posterUp">
+            <img class="poster" :src="getPoster()" @error="replaceByDefault" alt="">   
+        </div>
 
+        <div class="detailsUp">
+            
             <p> {{ itemMovie.title }} </p>
             <p :class="(itemMovie.title === itemMovie.original_title) ? 'hide' : 'show' " > {{ itemMovie.original_title }} </p>
             <img class="flag" src="../assets/images/en.png" alt="eng flag" v-if="itemMovie.original_language == 'en'">
@@ -13,7 +16,7 @@
                 <i v-for="i in 5" :key="i" :class="i <= starCount(itemMovie) ? 'fas fa-star' : 'far fa-star'"></i>
             </span>
 
-        </li> 
+        </div> 
 
 
   </section>

@@ -5,7 +5,7 @@
         <img class="poster" :src="getPoster()"  @error="replaceByDefault" alt="">   
 
         <p> {{ itemSerie.name }} </p> 
-        <p :class="(itemMovie.title === itemMovie.original_title) ? 'hide' : 'show' " > {{ itemSerie.original_name }} </p>
+        <p :class="(itemSerie.name === itemSerie.original_name) ? 'hide' : 'show' " > {{ itemSerie.original_name }} </p>
         <img class="flag" src="../assets/images/en.png" alt="eng flag" v-if="itemSerie.original_language == 'en'">
         <img class="flag" src="../assets/images/it.png" alt="ita flag" v-else-if="itemSerie.original_language == 'it'">
         <p v-else> {{ itemSerie.original_language }} </p>
