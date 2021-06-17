@@ -1,9 +1,11 @@
 <template>
   <section>
-    
+    <div class="rosicato">
+
     <div class="posterUp"> 
         <img class="poster" :src="getPoster()"  @error="replaceByDefault" alt="">   
     </div>
+    
 
     <div class="detailsUp mb-auto">
 
@@ -17,6 +19,9 @@
         </div>
         
     </div>
+
+    </div> 
+    <!-- rosicato -->
   
   </section>
 

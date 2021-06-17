@@ -90,6 +90,8 @@ export default {
 
       img.poster {
         width: 100%;
+        object-fit: cover;
+        
       }
 
       .posterUp {
@@ -141,9 +143,10 @@ export default {
           padding-top: 160px;
 
           .movie-serie-item {
-             width: calc(100% / 5 - 9px) ;
-             padding: 0 4px;
-             position: relative;
+            width: calc(100% / 5);
+            min-height: 210px;
+            padding: 0px 4px;
+            position: relative;
           }
 
         }
