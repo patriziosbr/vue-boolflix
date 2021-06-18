@@ -11,8 +11,8 @@
 
     
 
-      <div class="clearfix">
-        <MovieCard v-for="movie in moviesArr" :key="movie.id" :itemMovie="movie" class="float-start movie-serie-item "/>
+      <div class="d-flex flex-wrap">
+        <MovieCard v-for="movie in moviesArr" :key="movie.id" :itemMovie="movie" class="movie-serie-item "/>
       </div>
 
     
@@ -21,8 +21,8 @@
     <h2 v-else-if="seriesArr.length > 0">Serie TV</h2>
     <h1 class="warn"> {{ seriesWarn() }}</h1>
 
-    <div class="clearfix">
-      <SeriesCard v-for="serie in seriesArr" :key="serie.id" :itemSerie="serie" class="float-start movie-serie-item d-flex flex-column" />
+    <div class="d-flex flex-wrap">
+      <SeriesCard v-for="serie in seriesArr" :key="serie.id" :itemSerie="serie" class=" movie-serie-item " />
     </div>
 
   </section>
@@ -85,7 +85,7 @@ export default {
     .movie-serie-item {
       
       width: calc(100% / 3);
-      min-height: 380px;
+      // min-height: 380px;
       padding: 0 2px;
 
       img.poster {

@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="rosicato2">
        <div class="rosicato">
         <div class="posterUp">
             <img class="poster" :src="getPoster()" @error="replaceByDefault" alt="">   
@@ -54,9 +54,5 @@ export default {
 </script>
 
 <style lang="scss" >
-.rosicato {
-    min-height: 350px;
-    max-height: 650px;
-}
 
 </style>
