@@ -1,6 +1,6 @@
 <template>
-  <section class="rosicato2">
-       <div class="rosicato">
+  <section >
+       <div >
         <div class="posterUp">
             <img class="poster" :src="getPoster()" @error="replaceByDefault" alt="">   
         </div>
@@ -13,6 +13,7 @@
             <img class="flag" src="../assets/images/en.png" alt="eng flag" v-if="itemMovie.original_language == 'en'">
             <img class="flag" src="../assets/images/it.png" alt="ita flag" v-else-if="itemMovie.original_language == 'it'">
             <p class="detailsUpp" v-else>{{ itemMovie.original_language }}</p>
+            <p class="trama"> {{ itemMovie.overview }} </p>
             <div class="mb-auto">
                 <i v-for="i in 5" :key="i" :class="i <= starCount(itemMovie) ? 'fas fa-star' : 'far fa-star'"></i>
             </div>
@@ -54,5 +55,12 @@ export default {
 </script>
 
 <style lang="scss" >
-
+    .trama {
+        font-size: 11px;
+        width: 111px;
+        height: 61px;
+        white-space: wrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
 </style>

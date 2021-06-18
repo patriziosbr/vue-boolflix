@@ -4,7 +4,7 @@
       <div class="row d-flex justify-content-between align-items-center">
 
         <div class="logodebug col-md-2">
-            <a href="http://localhost:8080">
+            <a href="/">
                 <img  class="imgLogo" src="../assets/images/logo.png" alt="">
             </a>
         </div>
@@ -81,6 +81,9 @@ export default {
         
         .logodebug {
             text-align: start;
+            a {
+                height: 100%;
+            }
         }
 
      }
